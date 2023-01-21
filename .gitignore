@@ -1,5 +1,5 @@
-test
-bin
-.class
-.project
-.settings
+*test*
+*bin*
+*.class*
+*.project*
+*.settings*
