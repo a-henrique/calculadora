@@ -49,9 +49,20 @@ public class Memoria {
 			textoAtual = substituir ? texto : textoAtual + texto;
 			substituir = false;
 		} else {
-			
+			substituir = true;
+			textoAtual = obterResultadoOperacao();
+			textoBuffer = textoAtual;
+			ultimaOperacao = tipoComando;
 		}
 		observadores.forEach(o -> o.valorAlterado(getTextoAtual()));
+	}
+
+	private String obterResultadoOperacao() {
+		if(ultimaOperacao == null) {
+			return textoAtual;
+		}
+		
+		double numeroBuffer = Double.parseDouble((textoBuffer).replace(",", "."));
 	}
 
 	private TipoComando detectarTipoComando(String texto) {
